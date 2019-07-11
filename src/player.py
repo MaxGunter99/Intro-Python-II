@@ -25,10 +25,10 @@ class Player:
             self.items += item.name
     
     # REMOVE ITEM
-    def remove_item( self , backpack_inventory ):
+    def remove_item( self , items ):
         
         # REMOVE ITEM
-        if backpack_inventory == "Key":
-            self.items = 0
+        if items == "Key":
+            self.items = ''
 
         
