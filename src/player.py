@@ -3,9 +3,10 @@
 
 # PLAYER INITIAL STATE
 class Player:
-    def __init__( self , name , current_room , backpack_equipped = False , items = [] ):
+    def __init__( self , name , current_room , lives , backpack_equipped = False , items = [] ):
         self.name = name
         self.current_room = current_room
+        self.lives = lives
         self.backpack_equipped = backpack_equipped
         self.items = items
 
@@ -17,22 +18,17 @@ class Player:
             self.backpack_equipped = True
 
         # MAKE USE OF BACKPACK
-        if len( self.items ) <= 2 or self.backpack_equipped == True:
-            self.items += item
-            return True
+        elif self.backpack_equipped == True and item.name == "Key":
+            self.items += item.name
+
         else:
-            return False
+            self.items += item.name
     
     # REMOVE ITEM
-    def remove_item( self , item ):
-
-        # TAKE OFF BACKPACK
-        if item.name == "Backpack":
-            self.backpack_equipped = False
+    def remove_item( self , backpack_inventory ):
         
         # REMOVE ITEM
-        for i in self.items:
-            if i.name == item.name:
-                self.items.remove( item )
+        if backpack_inventory == "Key":
+            self.items = 0
 
         
