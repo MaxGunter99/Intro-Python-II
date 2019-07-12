@@ -25,10 +25,14 @@ class Player:
             self.items += item.name
     
     # REMOVE ITEM
-    def remove_item( self , items ):
+    def remove_item( self , item ):
         
         # REMOVE ITEM
-        if items == "Key":
-            self.items = ''
+
+        if item == "Key":
+            self.item = ""
+        
+        # else:
+        #     self.item -= item
 
         
